@@ -1,12 +1,28 @@
 steps:
-  - input: "Enter some notes to accompany this build"
+  - input: "Release details"
     fields:
-      - text: "Enter some notes here"
-        key: "some-notes"
+      - select: "Stream"
+        key: "release-stream"
+        hint: "Which release stream does this belong in? :fork:"
+        required: false
+        default: "beta"
+        options:
+          - label: "Beta"
+            value: "beta"
+          - label: "Stable"
+            value: "stable"
+
+      - text: "Code Name"
+        key: "release-name"
+        hint: "What’s the code name for this release? :name_badge:"
+        required: false
+        default: "Release #"
 
   - wait
 
-  - command: "echo notes: $(buildkite-agent meta-data get 'some-notes')"
-    label: "These are your notes :spiral_note_pad:
+  - commands: 
+    - "echo Release stream: $(buildkite-agent meta-data get 'release-stream')"
+    - "echo Code name: $(buildkite-agent meta-date get 'release-name')"
+    label: "Release info summary :spiral_note_pad:
     agents:
       queue: $AGENT
