@@ -7,5 +7,6 @@ steps:
   - wait
 
   - command: "echo notes: $(buildkite-agent meta-data get 'some-notes')"
+    label: "These are your notes :spiral_note_pad:
     agents:
       queue: $AGENT
