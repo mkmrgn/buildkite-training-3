@@ -1,0 +1,18 @@
+steps:
+  - command: "echo 'Checking build author name is mkmrgn'"
+    label: "Check build.author name"
+    agents:
+      queue: $AGENTS
+    if: "build.author.name == 'mkmrgn'"
+
+  - command: "echo 'Checking pipeline slug'"
+    label: "Check pipeline slug"
+    agents:
+      queue: $AGENTS
+    if: "pipeline.slug == 'buildkite-training-3'"
+
+  - command: "echo 'Checking pipeline repo'"
+    label: "Check pipeline repo"
+    agents:
+      queue: $AGENTS
+    if: "pipeline.repository == 'git@github.com:mkmrgn/buildkite-training-3.git'"
