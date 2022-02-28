@@ -6,3 +6,8 @@ steps:
         parallelism: 5
         agents:
           queue: $AGENTS
+  - wait
+  - command: "echo 'Group step complete'"
+    label: "Group step complete 
+    agents:
+      queue: $AGENTS
