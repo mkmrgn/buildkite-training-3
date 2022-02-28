@@ -1,0 +1,11 @@
+steps:
+  - command: echo "this step will soft fail" && exit 42
+    key: "step1"
+    soft_fail:
+      - exit_status: 42
+
+  - command: echo "this step will run regardless"
+    key: step2"
+    depends_on: "step1"
+    allow_dependency_failures: false
+

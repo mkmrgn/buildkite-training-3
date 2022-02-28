@@ -1,0 +1,20 @@
+steps:
+  - commands:
+    - echo $SERVER
+    - ls -lah
+
+    env:
+      MESSAGE: "hello, world!"
+
+    key: "hello-world"
+    label: "Hello, World! :wave: :earth_americas:"
+    priority: 10
+    timeout_in_minutes: 60
+
+    retry:
+      automatic:
+        - exit_status: -1
+          limit: 5
+
+    agents:
+      queue: $AGENTS

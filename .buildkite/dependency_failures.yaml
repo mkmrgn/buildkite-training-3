@@ -1,0 +1,16 @@
+steps:
+  - command: "script1.sh"
+    key: "script1"
+
+  - command: "script2.sh"
+    key: "script2"
+    depends_on: "script1"
+    allow_dependency_failures: true
+
+  - command: "script3.sh"
+    key: "script3"
+    depends_on:
+      - step: "script1"
+	allow_failure: true
+      - step: "script2"
+	allow_failure: false
