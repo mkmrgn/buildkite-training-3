@@ -2,6 +2,8 @@ steps:
   - command: "scripts/sleep.sh"
     label: "Sleep :sleeping:"
     parallelism: 3
+    agent:
+      queue: $AGENTS
 
   - wait
 

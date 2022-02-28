@@ -1,0 +1,11 @@
+steps:
+  - input: "Enter some notes to accompany this build"
+    fields:
+      - text: "Enter some notes here"
+        key: "some-notes"
+
+  - wait
+
+  - command: echo notes: $(buildkite-agent meta-data get "some-notes")
+    agent:
+      queue: $AGENT
