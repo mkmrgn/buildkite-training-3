@@ -7,5 +7,5 @@ steps:
   - wait
 
   - command: echo notes: $(buildkite-agent meta-data get "some-notes")
-    agent:
+    agents:
       queue: $AGENT
