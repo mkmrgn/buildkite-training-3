@@ -23,6 +23,6 @@ steps:
   - commands: 
     - "echo Release stream: $(buildkite-agent meta-data get 'release-stream')"
     - "echo Code name: $(buildkite-agent meta-date get 'release-name')"
-    label: "Release info summary :spiral_note_pad:
+    label: "Release info summary :spiral_note_pad:"
     agents:
       queue: $AGENT
