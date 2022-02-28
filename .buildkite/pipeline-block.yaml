@@ -5,7 +5,7 @@ steps:
     agents:
       queue: $AGENTS 
 
-  - input: "Release details"
+  - block: "Release details"
     fields:
       - select: "Stream"
         key: "release-stream"
