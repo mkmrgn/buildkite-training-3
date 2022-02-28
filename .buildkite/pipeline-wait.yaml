@@ -1,8 +1,8 @@
 steps:
-  - command: "sleep.sh"
+  - command: "scripts/sleep.sh"
     label: "Sleep :sleeping:"
     parallelism: 3
 
   - wait
 
-  - echo "All steps complete!"
+  - command: echo "All steps complete!"
