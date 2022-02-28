@@ -1,4 +1,10 @@
 steps:
+  - command: "script/sleep.sh"
+    label: "Sleep :sleeping:"
+    parallelism: 3
+    agents:
+      queue: $AGENTS 
+
   - input: "Release details"
     fields:
       - select: "Stream"
