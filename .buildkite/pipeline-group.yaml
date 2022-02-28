@@ -8,6 +8,6 @@ steps:
           queue: $AGENTS
   - wait
   - command: "echo 'Group step complete'"
-    label: "Group step complete 
+    label: "Group step complete :bk-status-passed:"
     agents:
       queue: $AGENTS
