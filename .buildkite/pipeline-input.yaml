@@ -24,6 +24,11 @@ steps:
         required: false
         default: "Release #"
 
+  - command: "echo 'This step does not wait for the input step to complete!'"
+    label: ":running:"
+    agents:
+      queue: $AGENTS
+
   - wait
 
   - commands: 
