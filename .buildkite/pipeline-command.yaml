@@ -1,6 +1,6 @@
 steps:
   - commands:
-    - echo $MESSAGE
+    - echo $$MESSAGE
     - ls -lah
 
     env:
