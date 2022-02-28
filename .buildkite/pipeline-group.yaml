@@ -1,0 +1,8 @@
+steps:
+  - group: "Some grouped steps" 
+    steps:    
+      - command: "scripts/sleep.sh"
+        label: "Sleeping :stopwatch:"
+        parallelism: 5
+        agents:
+          queue: $AGENTS
