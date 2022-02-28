@@ -6,6 +6,6 @@ steps:
 
   - wait
 
-  - command: echo notes: $(buildkite-agent meta-data get "some-notes")
+  - command: "echo notes: $(buildkite-agent meta-data get 'some-notes')"
     agents:
       queue: $AGENT
