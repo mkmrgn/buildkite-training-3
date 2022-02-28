@@ -1,0 +1,34 @@
+steps:
+  - command: "scripts/sleep.sh"
+    label: "Sleep :sleeping:"
+    parallelism: 3
+    agents:
+      queue: $AGENTS 
+
+  - input: "Release details"
+    fields:
+      - select: "Stream"
+        key: "release-stream"
+        hint: "Which release stream does this belong in? :fork:"
+        required: false
+        default: "beta"
+        options:
+          - label: "Beta"
+            value: "beta"
+          - label: "Stable"
+            value: "stable"
+
+      - text: "Code Name"
+        key: "release-name"
+        hint: "What’s the code name for this release? :name_badge:"
+        required: false
+        default: "Release #"
+
+  - wait
+
+  - commands: 
+    - "echo Release stream: $(buildkite-agent meta-data get 'release-stream')"
+    - "echo Code name: $(buildkite-agent meta-data get 'release-name')"
+    label: "Release info summary :spiral_note_pad:"
+    agents:
+      queue: $AGENT
